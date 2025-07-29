@@ -1,5 +1,5 @@
 // const express = require('express');
-import https from 'https';
+import http from 'http';
 import express from 'express';
 // const express = require('express');
 import passport from 'passport';
@@ -13,7 +13,7 @@ const sslOptions = {
   cert: fs.readFileSync('./ssl/cert.pem'),
 };
 
-const PORT = 5001;
+const PORT = 5000;
 // const solutionRoutes = require('./routes/solution.routes');
 // import solutionRoutes from './routes/solution.routes.js'
 // import { solutionRoutes } from './routes/solution.routes.js';
@@ -26,8 +26,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 
 
-https.createServer(sslOptions, app).listen(5001, () => {
-  console.log(`✅ HTTPS server running at https://localhost:5001`);
+http.createServer(sslOptions, app).listen(5000, () => {
+  console.log(`✅ HTTPS server running at https://localhost:5000`);
 });
 // const samlStrategy = new SamlStrategy(
 //   {
