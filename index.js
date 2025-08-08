@@ -8,9 +8,18 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 const app = express();
 
+<<<<<<< HEAD
 const sslOptions = {
   key: fs.readFileSync('./ssl/key.pem'),
   cert: fs.readFileSync('./ssl/cert.pem'),
+=======
+import dotenv from 'dotenv';
+dotenv.config();
+
+const sslOptions = {
+  key: fs.readFileSync(process.env.SSL_KEY_PATH),
+  cert: fs.readFileSync(process.env.SSL_CERT_PATH),
+>>>>>>> c9ad3e7 (Initial commit)
 };
 
 const PORT = 5000;
@@ -18,7 +27,12 @@ const PORT = 5000;
 // import solutionRoutes from './routes/solution.routes.js'
 // import { solutionRoutes } from './routes/solution.routes.js';
 import solutionRoutes from './routes/solution.routes.js';
-app.use(cors());
+// app.use(cors());
+
+app.use(cors({
+  origin: process.env.ALLOWED_ORIGIN,
+  credentials: true
+}));
 app.use(express.json());
 app.use('/api/solutions', solutionRoutes);
 

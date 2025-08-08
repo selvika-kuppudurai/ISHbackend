@@ -76,6 +76,36 @@ const SolutionController = {
     }
   },
 
+  async insertapi(req, res){
+    // req = {
+    //   description: "checkingg",
+    //   entity_horizontal: "Bet",
+    //   solution_name: "solutionn",
+    //   title: "bbbbbb",
+    //   business_problem: "hhhh",
+    //   solution_approach: "b",
+    //   impact: "n",
+    //   owners: "['selvika']",
+    //   contributors: "['renuka']",
+    //   confluencelink: "yyyy",
+    //   addtechstack: "['UI', 'backend']",
+    //   demovideolink: "yyyy",
+    //   pdfdocument: 'documnet link',
+    //   pptdocument: 'ppr link'
+    // }
+try{
+        const data = await SolutionService.CreateSolution(req);
+      if (!data) {
+        return res.status(404).json({ error: 'Solution not found' });
+      }
+      return res.status(200).json(data);
+
+} catch (err) {
+      console.error('Error fetching solution by ID:', err);
+      return res.status(500).json({ error: 'Error fetching solution' });
+    }
+  },
+
   async getById(req, res) {
     try {
       const { id } = req.params;

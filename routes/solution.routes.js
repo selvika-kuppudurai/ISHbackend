@@ -6,6 +6,7 @@ const router = express.Router();
 router.get('/filter', SolutionController.getfilters)
 router.get('/', SolutionController.getAll);
 router.get('/:id', SolutionController.getById);
+router.post('/insertapi', SolutionController.insertapi)
 
 
 export default router;

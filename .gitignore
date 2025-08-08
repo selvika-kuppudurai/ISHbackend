@@ -1,0 +1,15 @@
+# Ignore environment files
+.env
+ssl/*.pem
+
+# Node.js
+node_modules/
+dist/
+build/
+.DS_Store
+
+# Logs
+logs
+*.log.env
+ssl/*.pem
+node_modules/
